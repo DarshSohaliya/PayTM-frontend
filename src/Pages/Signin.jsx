@@ -2,7 +2,7 @@ import { Button } from "../components/Button"
 import { Heading } from "../components/Heading"
 import { InputBox } from "../components/InputBox"
 import { SubHeading } from "../components/SubHeading"
-import {BottomWarning } from '../components/BottimWarning'
+import {BottomWarning } from '../components/BottomWarning'
 
 
 export const Signin = () => {

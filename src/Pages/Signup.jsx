@@ -4,7 +4,7 @@ import { InputBox } from '../components/InputBox'
 import { Button } from '../components/Button'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import { BottomWarning } from '../components/BottimWarning'
+import { BottomWarning } from '../components/BottomWarning'
 import { useState } from 'react'
 
 export const Signup = () => {
@@ -25,7 +25,7 @@ export const Signup = () => {
                 setFirstName(e.target.value)
                }} placeholder={"Enter Your FirstName"} label={"First Name"}/>
                <InputBox onChange={(e) => {
-                setFirstName(e.target.value)
+                setLastName(e.target.value)
                }} placeholder={"Enter Your LastName"} label={"Last Name"}/>
                <InputBox onChange={(e) => {
                 setEmail(e.target.value)
@@ -35,14 +35,19 @@ export const Signup = () => {
                }} placeholder={"Enter Your Password"} label={"Password"}/>
                <div className='pt-4'>
                <Button onClick={async () => {
-                const response = await axios.post("https://localhost:3000/api/v1/user/signup",{
-                    username,
+                try {
+                    const response = await axios.post("http://localhost:3000/api/v1/user/signup",{
+                    email,
                     firstName,
                     lastName,
                     password
                 })
+                console.log(response);
                 localStorage.setItem("token",response.data.token)
-           navigate('/dashboard')
+                  navigate('/dashboard')
+                } catch (error) {
+                    console.error("Signup not",error);
+                }
                }} label={"Sign up"}/>
                
                </div>
