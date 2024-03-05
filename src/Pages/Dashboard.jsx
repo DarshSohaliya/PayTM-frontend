@@ -25,13 +25,13 @@ export const Dashboard = () => {
     })
     .catch(error => {
       console.error('Error fetching balance:', error);
-      // Handle error (e.g., show an error message to the user)
+      
     });
   }, []);
   
    
    const getAuthToken = () => {
-     return localStorage.getItem('authtoken')
+     return localStorage.getItem('token')
    }
 
     return <div>
